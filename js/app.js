@@ -83,7 +83,7 @@ function getClientToken() {
 }
 
 function registerServiceWorker() {
-  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  navigator.serviceWorker.register('/web-push-notification/firebase-messaging-sw.js')
     .then((registration) => {
       messaging.useServiceWorker(registration);
       // request notification permission and get token
