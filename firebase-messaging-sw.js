@@ -24,6 +24,11 @@ self.addEventListener('message', (event) => {
     }
 });
 
+self.addEventListener('install', evt=> {
+     self.skipwaiting();
+     console.log(‘service worker has been installed’);
+});
+
 messaging.onBackgroundMessage(function (payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
