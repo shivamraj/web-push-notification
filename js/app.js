@@ -20,36 +20,36 @@ loadDynamicScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js',()
 loadDynamicScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js', loadFile);
 });
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyBPE-loIzu11y2BbiM9Ie6QQoA0LMyQCG8",
+      authDomain: "push-notification-demo-638e7.firebaseapp.com",
+      projectId: "push-notification-demo-638e7",
+      storageBucket: "push-notification-demo-638e7.appspot.com",
+      messagingSenderId: "88844666505",
+      appId: "1:88844666505:web:580bc5ee8de570049d6858"
+    };
+    // For getting client token
+    var vapidKey = 'BF-nmrF3lsg4dlrLYMkEl_q-5rp6MC5iwf94sQfUHKXMPgpTTyFzkd3Vt9j0Bpnqun-GHBe_WDqOg6-XKx4P_AE'
+
+    // Notification data
+    var notification = {
+      'title': 'Portugal vs. Denmark',
+      'body': '5 to 1',
+      'icon': 'firebase-logo.png',
+      'click_action': 'http://localhost:8081'
+    };
+
+    // server key send in Authorization header
+    var serverkey = 'AAAAFK-OBok:APA91bFG8XKRet1FTR1dbjqBAntU9yX4DvtOfyQRb1CpOWyhoQKqDoeJnOpnJmef4WTIO9M8Peap3lucFnYTARtGss8e-j2MrGf-ImdESYBdcM8SXBmxDpiWfPdFjG2DBIbNTRtLi7UT'
+    var messaging;
 
 function loadFile(){
 
+    // Initialize Firebase
+    var app = firebase.initializeApp(firebaseConfig);
+    messaging = firebase.messaging();
 
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBPE-loIzu11y2BbiM9Ie6QQoA0LMyQCG8",
-  authDomain: "push-notification-demo-638e7.firebaseapp.com",
-  projectId: "push-notification-demo-638e7",
-  storageBucket: "push-notification-demo-638e7.appspot.com",
-  messagingSenderId: "88844666505",
-  appId: "1:88844666505:web:580bc5ee8de570049d6858"
-};
-// For getting client token
-const vapidKey = 'BF-nmrF3lsg4dlrLYMkEl_q-5rp6MC5iwf94sQfUHKXMPgpTTyFzkd3Vt9j0Bpnqun-GHBe_WDqOg6-XKx4P_AE'
-
-// Notification data
-const notification = {
-  'title': 'Portugal vs. Denmark',
-  'body': '5 to 1',
-  'icon': 'firebase-logo.png',
-  'click_action': 'http://localhost:8081'
-};
-
-// server key send in Authorization header
-const serverkey = 'AAAAFK-OBok:APA91bFG8XKRet1FTR1dbjqBAntU9yX4DvtOfyQRb1CpOWyhoQKqDoeJnOpnJmef4WTIO9M8Peap3lucFnYTARtGss8e-j2MrGf-ImdESYBdcM8SXBmxDpiWfPdFjG2DBIbNTRtLi7UT'
-
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const messaging = firebase.messaging();
+}
 
 
 function sendPushNotification(token) {
@@ -83,9 +83,6 @@ function subscribePushNotification() {
       })
     }
   })
-}
-
-
 }
 
 
