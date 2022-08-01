@@ -1,6 +1,6 @@
 
 // Your web app's Firebase configuration
-function async dynamicallyLoadScript(url) {
+async function dynamicallyLoadScript(url) {
     var script = document.createElement("script");  // create a script DOM node
     script.src = url;  // set its src to the provided URL
     script.async = false;
