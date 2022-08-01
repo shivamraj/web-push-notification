@@ -48,7 +48,9 @@ function loadFile(){
     // Initialize Firebase
     var app = firebase.initializeApp(firebaseConfig);
     messaging = firebase.messaging();
-
+    messaging.onMessage(res => {
+      console.log("res===", res)
+    })
 }
 
 
@@ -71,9 +73,7 @@ function sendPushNotification(token) {
   })
 }
 
-messaging.onMessage(res => {
-  console.log("res===", res)
-})
+
 function subscribePushNotification() {
   Notification.requestPermission().then((permission) => {
     if (permission === 'granted') {
