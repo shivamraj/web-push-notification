@@ -1,16 +1,26 @@
 
 // Your web app's Firebase configuration
-async function dynamicallyLoadScript(url) {
-    var script = document.createElement("script");  // create a script DOM node
-    script.src = url;  // set its src to the provided URL
-    script.async = false;
-   
-    document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
-}
+const loadDynamicScript = (callback) => {
+  const existingScript = document.getElementById('scriptId');
 
-async function loadFile(){
-await dynamicallyLoadScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js');
-await dynamicallyLoadScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js');
+  if (!existingScript) {
+    const script = document.createElement('script');
+    script.src = 'url'; // URL for the third-party library being loaded.
+    script.id = 'libraryName'; // e.g., googleMaps or stripe
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      if (callback) callback();
+    };
+  }
+
+  if (existingScript && callback) callback();
+};
+loadDynamicScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js');
+loadDynamicScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js', loadFile);
+
+function loadFile(){
+
 
 
 const firebaseConfig = {
