@@ -86,26 +86,29 @@ function getClientToken() {
 }
 
 function registerServiceWorker() {
-  navigator.serviceWorker.register('/web-push-notification/firebase-messaging-sw.js')
-    .then((registration) => {
-      messaging.useServiceWorker(registration);
-      // request notification permission and get token
-      console.log('Registration successful, scope is:', registration.scope);
-      getClientToken();
-      //TODO: ask For Permission To Receive Notifications
-    }).catch(function (err) {
-      console.log('Service worker registration failed, error:', err);
-    });
+   if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/web-push-notification/firebase-messaging-sw.js')
+        .then((registration) => {
+          messaging.useServiceWorker(registration);
+          // request notification permission and get token
+          console.log('Registration successful, scope is:', registration.scope);
+          getClientToken();
+          //TODO: ask For Permission To Receive Notifications
+        }).catch(function (err) {
+          console.log('Service worker registration failed, error:', err);
+        });
+      }
 }
 
 function subscribePushNotification() {
-  if ('serviceWorker' in navigator) {
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        registerServiceWorker();
-      }
-    })
-  }
+ 
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          registerServiceWorker();
+        }
+      })
+    }
 }
 
 window.onload = ()=>{
