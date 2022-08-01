@@ -79,7 +79,7 @@ function sendPushNotification(token) {
 function getClientToken() {
   messaging.getToken({ vapidKey }).then((token) => {
     console.log('token====', token)
-    document.getElementById('token-id').innerHTML = token
+    document.getElementById('token').innerHTML = token
     // sendPushNotification(token);
     //shopify-section-slideshow
   })
@@ -108,4 +108,7 @@ function subscribePushNotification() {
   }
 }
 
+window.onload = ()=>{
+   subscribePushNotification();
+}
 
