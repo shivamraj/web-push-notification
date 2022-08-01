@@ -88,4 +88,4 @@ function subscribePushNotification() {
 
 }
 
-loadFile();
+
