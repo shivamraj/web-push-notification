@@ -1,12 +1,12 @@
 
 // Your web app's Firebase configuration
-const loadDynamicScript = (callback) => {
+const loadDynamicScript = (url,callback) => {
   const existingScript = document.getElementById('scriptId');
 
   if (!existingScript) {
     const script = document.createElement('script');
-    script.src = 'url'; // URL for the third-party library being loaded.
-    script.id = 'libraryName'; // e.g., googleMaps or stripe
+    script.src = url; // URL for the third-party library being loaded.
+    script.id = 'libraryName' + new Date(); // e.g., googleMaps or stripe
     document.body.appendChild(script);
 
     script.onload = () => {
