@@ -17,6 +17,16 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
+// Service Worker-based solution
+self.addEventListener('activate', async () => {
+  // after we've taken over, iterate over all the current clients (windows)
+  const tabs = await self.clients.matchAll({type: 'window'})
+  tabs.forEach((tab) => {
+    // ...and refresh each one of them
+    tab.navigate(tab.url)
+  })
+})
+
 messaging.onBackgroundMessage(function (payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
