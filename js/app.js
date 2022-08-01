@@ -7,6 +7,8 @@ async function dynamicallyLoadScript(url) {
    
     document.head.appendChild(script);  // add it to the end of the head section of the page (could change 'head' to 'body' to add it to the end of the body section instead)
 }
+
+async function loadFile(){
 await dynamicallyLoadScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js');
 await dynamicallyLoadScript('https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js');
 
@@ -70,3 +72,8 @@ function subscribePushNotification() {
     }
   })
 }
+
+
+}
+
+loadFile();
