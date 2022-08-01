@@ -73,16 +73,36 @@ function sendPushNotification(token) {
   })
 }
 
+function getClientToken() {
+  messaging.getToken({ vapidKey }).then((token) => {
+    console.log('token====', token)
+    document.getElementById('token-id').innerHTML = token
+    // sendPushNotification(token);
+    //shopify-section-slideshow
+  })
+}
+
+function registerServiceWorker() {
+  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    .then((registration) => {
+      messaging.useServiceWorker(registration);
+      // request notification permission and get token
+      console.log('Registration successful, scope is:', registration.scope);
+      getClientToken();
+      //TODO: ask For Permission To Receive Notifications
+    }).catch(function (err) {
+      console.log('Service worker registration failed, error:', err);
+    });
+}
 
 function subscribePushNotification() {
-  Notification.requestPermission().then((permission) => {
-    if (permission === 'granted') {
-      messaging.getToken({ vapidKey }).then((token) => {
-        //  document.getElementById('token-id').innerHTML = token
-        sendPushNotification(token);
-      })
-    }
-  })
+  if ('serviceWorker' in navigator) {
+    Notification.requestPermission().then((permission) => {
+      if (permission === 'granted') {
+        registerServiceWorker();
+      }
+    })
+  }
 }
 
 
