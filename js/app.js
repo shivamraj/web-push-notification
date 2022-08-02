@@ -92,11 +92,13 @@ function registerServiceWorker() {
 }
 
 function subscribePushNotification() {
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        registerServiceWorker();
-      }
-    })
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission().then((permission) => {
+        if (permission === 'granted') {
+          registerServiceWorker();
+        }
+      })
+   }
 }
 
 onSubscribeAllowed = () => {
@@ -109,9 +111,7 @@ onSubscribeRejected = () => {
 }
 
 window.onload = ()=>{
-  if (Notification.permission !== "granted") {
     const slideDownEl = document.getElementById('onesignal-slidedown-container');
     slideDownEl.style.display = 'block';
-  }
 }
 
