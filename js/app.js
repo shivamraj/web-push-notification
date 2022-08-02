@@ -108,13 +108,18 @@ function subscribePushNotification() {
    }
 }
 
+const hidePushNotificationPrompt = () => {
+  const slideDownEl = document.getElementById('onesignal-slidedown-container');
+  slideDownEl.style.display = 'none';
+}
+
 onSubscribeAllowed = () => {
   subscribePushNotification();
+  hidePushNotificationPrompt();
 }
 
 onSubscribeRejected = () => {
-  const slideDownEl = document.getElementById('onesignal-slidedown-container');
-  slideDownEl.style.display = 'none';
+  hidePushNotificationPrompt();
 }
 
 
