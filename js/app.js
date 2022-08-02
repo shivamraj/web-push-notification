@@ -92,17 +92,26 @@ function registerServiceWorker() {
 }
 
 function subscribePushNotification() {
-
-  if (Notification.permission !== "granted") {
     Notification.requestPermission().then((permission) => {
       if (permission === 'granted') {
         registerServiceWorker();
       }
     })
-  }
 }
 
-window.onload = () => {
+onSubscribeAllowed = () => {
   subscribePushNotification();
+}
+
+onSubscribeRejected = () => {
+  const slideDownEl = document.getElementById('onesignal-slidedown-container');
+  slideDownEl.style.display = 'none';
+}
+
+window.onload = ()=>{
+  if (Notification.permission !== "granted") {
+    const slideDownEl = document.getElementById('onesignal-slidedown-container');
+    slideDownEl.style.display = 'block';
+  }
 }
 
