@@ -1,4 +1,11 @@
 
+window.addEventListener('load', function() {
+  if (Notification.permission !== "granted") {
+   const slideDownEl = document.getElementById('onesignal-slidedown-container');
+   slideDownEl.style.display = 'block';
+ }
+})
+
 // Your web app's Firebase configuration
 const loadDynamicScript = (url, callback) => {
   const existingScript = document.getElementById('scriptId');
@@ -110,11 +117,5 @@ onSubscribeRejected = () => {
   slideDownEl.style.display = 'none';
 }
 
-window.onload = ()=>{
-  console.log('asdsalkd')
-   if (Notification.permission !== "granted") {
-    const slideDownEl = document.getElementById('onesignal-slidedown-container');
-    slideDownEl.style.display = 'block';
-  }
-}
+
 
