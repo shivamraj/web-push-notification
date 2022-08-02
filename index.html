@@ -775,6 +775,27 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/app.js"></script>
+    <script>
+  	function getQueryStringValue(key) {
+        return decodeURIComponent(window.location.search.replace(new RegExp("^(?:.*[&\?]" + encodeURIComponent(key).replace(/[\.\+\*]/g, "\bcQuery&") + "(?:\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+    var triggermail = triggermail || [];
+  	var bluecore_url = "https://storage.googleapis.com/onsite-qa/upload/bluecore_txe_ca.js?aaabb";
+    if((document.URL).indexOf('reset=') > -1) {
+      	var reset_value = getQueryStringValue('reset');
+    	bluecore_url += '?' + reset_value;
+    }
+    triggermail.load = function (a) {
+        var b = document.createElement("script");
+        b.type = "text/javascript";
+        b.async = !0;
+        b.src = bluecore_url;
+        a = document.getElementsByTagName("script")[0];
+        a.parentNode.insertBefore(b, a);
+    };
+    triggermail.load("bluecore_txe_ca");
+    window.triggermail = triggermail;
+</script>
 </body>
 
 </html>
