@@ -111,7 +111,9 @@ onSubscribeRejected = () => {
 }
 
 window.onload = ()=>{
+   if (Notification.permission !== "granted") {
     const slideDownEl = document.getElementById('onesignal-slidedown-container');
     slideDownEl.style.display = 'block';
+  }
 }
 
