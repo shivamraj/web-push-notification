@@ -25,7 +25,7 @@ self.addEventListener('message', (event) => {
 });
 // update service worker when changes found in sw.js
 self.addEventListener('install', evt=> {
-     self.skipwaiting();
+     self.skipWaiting();
 });
 
 messaging.onBackgroundMessage(function (payload) {
