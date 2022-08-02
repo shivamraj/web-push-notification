@@ -56,7 +56,7 @@ function loadFile() {
 
 function saveClientTokenOnServer(token) {
 
-  fetch('http://thenotifiers.000webhostapp.com/put?' + new URLSearchParams({
+  fetch('https://thenotifiers.000webhostapp.com/put?' + new URLSearchParams({
     id: token,
   }), {
     'method': 'GET',
