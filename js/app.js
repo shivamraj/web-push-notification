@@ -49,10 +49,7 @@ function loadFile(){
     var app = firebase.initializeApp(firebaseConfig);
     messaging = firebase.messaging();
    messaging.onMessage(res => {
-    console.log("res===", res)
-    var img = '/to-do-notifications/img/icon-128.png';
-    var text = `Thanks for subscribing push notification`;
-    var notification1 = new Notification('To do list', { body: text, icon: img });
+    var notification1 = new Notification('To do list', { body: res.notification.message, icon: res.notification.icon, subtitle: res.notification.subtitle});
   })
 }
 
