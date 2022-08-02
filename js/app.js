@@ -49,7 +49,7 @@ function loadFile(){
     var app = firebase.initializeApp(firebaseConfig);
     messaging = firebase.messaging();
    messaging.onMessage(res => {
-    var notification1 = new Notification('To do list', { body: res.notification.message, icon: res.notification.icon, subtitle: res.notification.subtitle});
+    var notification1 = new Notification(res.notification.title, { body: res.notification.message, icon: res.notification.icon, subtitle: res.notification.subtitle});
   })
 }
 
