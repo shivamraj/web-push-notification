@@ -47,15 +47,24 @@ messaging.onBackgroundMessage(function (payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
   const notificationTitle = payload.notification.title;
+  const buttonOneText = payload.data['gcm.notification.buttonOne']
+  const buttonTwoText = payload.data['gcm.notification.buttonTwo']
   const notificationOptions = {
     body: payload.notification.body,
     icon: '/firebase-logo.png',
     subtitle: payload.notification.subtitle,
-    actions: [
-      {action: 'like', title: 'Like'},  
-      {action: 'reply', title: 'Reply'}
-    ]
   };
+
+  const actions = [];
+  if(buttonOneText){
+    actions.push({action: 'action1', title: buttonOneText})
+  }
+  if(buttonTwoText){
+    actions.push({action: 'action2', title: buttonTwoText})
+  }
+
+  if(actions.length)
+    notificationOptions[actions] = actions;
 
   self.registration.showNotification(notificationTitle,
     notificationOptions);
