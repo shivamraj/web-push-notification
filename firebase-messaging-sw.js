@@ -28,17 +28,20 @@ self.addEventListener('install', evt=> {
      self.skipWaiting();
 });
 self.addEventListener('activate', () => self.clients.claim());
-self.addEventListener('push', function (event) {
-  var data = event.data.json();
-  
-  const title = data.Title;
-  data.Data.actions = data.Actions;
-  const options = {
-    body: data.Message,
-    data: data.Data
-  };
-  event.waitUntil(self.registration.showNotification(title, options));
-});
+
+self.addEventListener('notificationclick', function(event) {  
+  var messageId = event.notification.data;
+  console.log('notificationclick',event);
+  event.notification.close();  
+    
+  if (event.action === 'like') {  
+    console.log('liked') 
+  }  
+  else if (event.action === 'reply') {  
+    console.log('replied') 
+    clients.openWindow("/messages?reply=" + messageId);  
+  }  
+}, false);
 
 messaging.onBackgroundMessage(function (payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
