@@ -1,6 +1,6 @@
 
 window.addEventListener('load', function() {
-  if (Notification.permission !== "granted") {
+  if (Notification.permission !== "granted" && !window.triggermail) {
    const slideDownEl = document.getElementById('onesignal-slidedown-container');
    slideDownEl.style.display = 'block';
  }
