@@ -113,9 +113,24 @@ function subscribePushNotification() {
    }
 }
 
+const fadeOutEffect = (idSelector)=> {
+    var fadeTarget = document.getElementById(idSelector);
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 200);
+}
+
 const hidePushNotificationPrompt = () => {
-  const slideDownEl = document.getElementById('onesignal-slidedown-container');
-  slideDownEl.style.display = 'none';
+  //const slideDownEl = document.getElementById('onesignal-slidedown-container');
+ // slideDownEl.style.display = 'none';
+  fadeOutEffect('onesignal-slidedown-container');
 }
 
 onSubscribeAllowed = () => {
