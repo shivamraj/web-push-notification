@@ -56,6 +56,7 @@ function loadFile() {
   var app = firebase.initializeApp(firebaseConfig);
   messaging = firebase.messaging();
   messaging.onMessage(res => {
+    console.log("onMessage response", res)
     var notification1 = new Notification(res.notification.title, { 
       body: res.notification.message, 
       icon: res.notification.icon, 
