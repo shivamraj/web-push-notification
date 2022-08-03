@@ -28,6 +28,17 @@ self.addEventListener('install', evt=> {
      self.skipWaiting();
 });
 self.addEventListener('activate', () => self.clients.claim());
+self.addEventListener('push', function (event) {
+  var data = event.data.json();
+  
+  const title = data.Title;
+  data.Data.actions = data.Actions;
+  const options = {
+    body: data.Message,
+    data: data.Data
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
 
 messaging.onBackgroundMessage(function (payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
