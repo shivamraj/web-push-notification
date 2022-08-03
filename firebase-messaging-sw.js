@@ -64,7 +64,7 @@ messaging.onBackgroundMessage(function (payload) {
   }
 
   if(actions.length)
-    notificationOptions[actions] = actions;
+    notificationOptions["actions"] = actions;
 
   self.registration.showNotification(notificationTitle,
     notificationOptions);
