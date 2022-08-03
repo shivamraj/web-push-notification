@@ -43,6 +43,8 @@ self.addEventListener('notificationclick', function(event) {
   }  
 }, false);
 
+self.showNotification()
+
 messaging.onBackgroundMessage(function (payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
@@ -50,7 +52,11 @@ messaging.onBackgroundMessage(function (payload) {
   const notificationOptions = {
     body: payload.notification.body,
     icon: '/firebase-logo.png',
-    subtitle: payload.notification.subtitle
+    subtitle: payload.notification.subtitle,
+    actions: [
+      {action: 'like', title: 'Like'},  
+      {action: 'reply', title: 'Reply'}
+    ]
   };
 
   self.registration.showNotification(notificationTitle,

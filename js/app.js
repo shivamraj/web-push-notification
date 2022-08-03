@@ -60,10 +60,6 @@ function loadFile() {
       body: res.notification.message, 
       icon: res.notification.icon, 
       subtitle: res.notification.subtitle,
-      actions: [
-        {action: 'like', title: 'Like'},  
-        {action: 'reply', title: 'Reply'}
-      ]
     });
   })
 }
