@@ -50,3 +50,5 @@ function getClientToken() {
     // sendPushNotification(token);
   })
 }
+self.addEventListener('activate', () => self.clients.claim());
+
