@@ -1,9 +1,6 @@
 
 window.addEventListener('load', function() {
-  alert("loaded")
-
   if (Notification.permission !== "granted" && !window.triggermail) {
-    alert("loaded if")
    const slideDownEl = document.getElementById('onesignal-slidedown-container');
    slideDownEl.style.display = 'block';
  }
@@ -59,7 +56,15 @@ function loadFile() {
   var app = firebase.initializeApp(firebaseConfig);
   messaging = firebase.messaging();
   messaging.onMessage(res => {
-    var notification1 = new Notification(res.notification.title, { body: res.notification.message, icon: res.notification.icon, subtitle: res.notification.subtitle });
+    var notification1 = new Notification(res.notification.title, { 
+      body: res.notification.message, 
+      icon: res.notification.icon, 
+      subtitle: res.notification.subtitle,
+      actions: [
+        {action: 'like', title: 'Like'},  
+        {action: 'reply', title: 'Reply'}
+      ]
+    });
   })
 }
 
