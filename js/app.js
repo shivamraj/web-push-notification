@@ -92,13 +92,6 @@ function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/web-push-notification/firebase-messaging-sw.js', { updateViaCache: 'none' })
       .then((registration) => {
-       registration.pushManager.getSubscription().then(subscription => {
-        if (subscription) {
-            console.log("subscription====111",subscription)
-          return subscription;
-        }
-          console.log("subscription====222",subscription)
-       })
         messaging.useServiceWorker(registration);
         // request notification permission and get token
         console.log('Registration successful, registration is:', registration);
