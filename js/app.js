@@ -94,7 +94,7 @@ function registerServiceWorker() {
       .then((registration) => {
         messaging.useServiceWorker(registration);
         // request notification permission and get token
-        console.log('Registration successful, scope is:', registration.scope);
+        console.log('Registration successful, registration is:', registration);
         getClientToken();
         //TODO: ask For Permission To Receive Notifications
       }).catch(function (err) {
