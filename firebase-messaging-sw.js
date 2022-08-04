@@ -27,7 +27,18 @@ self.addEventListener('message', (event) => {
 self.addEventListener('install', evt=> {
      self.skipWaiting();
 });
-self.addEventListener('activate', () => self.clients.claim());
+self.addEventListener('activate', async () => {
+  // This will be called only once when the service worker is activated.
+  try {
+    const options = {}
+    const subscription = await self.registration.pushManager.subscribe(options)
+    console.log("active====",JSON.stringify(subscription))
+  } catch (err) {
+    console.log('Error', err)
+  }
+  self.clients.claim()
+})
+//self.addEventListener('activate', () => self.clients.claim());
 
 self.addEventListener('notificationclick', function(event) {  
   var messageId = event.notification.data;
