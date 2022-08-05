@@ -52,7 +52,7 @@ messaging.onBackgroundMessage(function (payload) {
   const buttonTwoText = payload.data.buttonTwo
   const notificationOptions = {
     body: payload.notification.body,
-    icon: '/firebase-logo.png',
+    icon: payload.notification.icon,
     image: payload.data.notificationImage,
   };
 
