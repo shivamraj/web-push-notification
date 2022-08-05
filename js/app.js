@@ -124,7 +124,7 @@ const fadeOutEffect = (idSelector)=> {
         } else {
             clearInterval(fadeEffect);
         }
-    }, 200);
+    }, 100);
 }
 
 const hidePushNotificationPrompt = () => {
