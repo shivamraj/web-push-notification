@@ -52,7 +52,7 @@ messaging.onBackgroundMessage(function (payload) {
   const buttonTwoText = payload.data.buttonTwo
   const notificationOptions = {
     body: payload.notification.body,
-    icon: payload.notification.icon,
+    icon: payload.data.icon,
     image: payload.data.notificationImage,
   };
 
