@@ -129,10 +129,8 @@ const fadeOutEffect = (idSelector)=> {
 
 const hidePushNotificationPrompt = () => {
   const slideDownEl = document.getElementById('onesignal-slidedown-container');
- // slideDownEl.style.display = 'none';
   //fadeOutEffect('onesignal-slidedown-container');
-   slideDownEl.classList.add("slide-up");
-   slideDownEl.classList.add("slide-down");
+   slideDownEl.classList.add("close-slidedown");
 }
 
 onSubscribeAllowed = () => {
