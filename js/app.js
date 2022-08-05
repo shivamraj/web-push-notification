@@ -82,7 +82,7 @@ function saveClientTokenOnServer(token) {
 function getClientToken() {
   messaging.getToken({ vapidKey }).then((token) => {
     console.log('token====', token)
-    document.getElementById('token').innerHTML = token
+   // document.getElementById('token').innerHTML = token
     saveClientTokenOnServer(token);
     //shopify-section-slideshow
   })
