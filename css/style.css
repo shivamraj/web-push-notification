@@ -9700,6 +9700,9 @@ a.text-dark:hover, a.text-dark:focus {
   animation-duration: .4s;
   animation-fill-mode: forwards;
   width:500px;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .slidedown-body-icon {
