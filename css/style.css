@@ -9627,29 +9627,7 @@ a.text-dark:hover, a.text-dark:focus {
     bottom: 0;
 }
 
-    #onesignal-slidedown-container.slide-down.close-slidedown #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-down.close-slidedown #onesignal-popover-dialog, #onesignal-popover-container.slide-down.close-slidedown #onesignal-slidedown-dialog, #onesignal-popover-container.slide-down.close-slidedown #onesignal-popover-dialog {
-      -webkit-animation-name: slideDownExit;
-      -webkit-animation-iteration-count: 1;
-      -webkit-animation-timing-function: ease-out;
-      -webkit-animation-duration: 400ms;
-      -webkit-animation-fill-mode: forwards;
-      animation-name: slideDownExit;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-out;
-      animation-duration: 400ms;
-      animation-fill-mode: forwards;
-}
-   #onesignal-slidedown-container.slide-up.close-slidedown #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-up.close-slidedown #onesignal-popover-dialog, #onesignal-slidedown-container.slide-up.close-popover #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-up.close-popover #onesignal-popover-dialog, #onesignal-popover-container.slide-up.close-slidedown #onesignal-slidedown-dialog, #onesignal-popover-container.slide-up.close-slidedown #onesignal-popover-dialog, #onesignal-popover-container.slide-up.close-popover #onesignal-slidedown-dialog, #onesignal-popover-container.slide-up.close-popover #onesignal-popover-dialog {
-      -webkit-animation-name: slideUpExit;
-      -webkit-animation-iteration-count: 1;
-      -webkit-animation-timing-function: ease-out;
-      -webkit-animation-duration: 400ms;
-      -webkit-animation-fill-mode: forwards;
-      animation-name: slideUpExit;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-out;
-      animation-duration: 400ms;
-      animation-fill-mode: forwards; }
+ 
 
 #onesignal-slidedown-container.slide-up #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-up #onesignal-popover-dialog, #onesignal-popover-container.slide-up #onesignal-slidedown-dialog, #onesignal-popover-container.slide-up #onesignal-popover-dialog {
     border-bottom-left-radius: unset;
@@ -9678,6 +9656,30 @@ a.text-dark:hover, a.text-dark:focus {
 #onesignal-popover-container.slide-down, #onesignal-slidedown-container.slide-down {
   top: 0;
 }
+
+   #onesignal-slidedown-container.slide-down.close-slidedown #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-down.close-slidedown #onesignal-popover-dialog, #onesignal-popover-container.slide-down.close-slidedown #onesignal-slidedown-dialog, #onesignal-popover-container.slide-down.close-slidedown #onesignal-popover-dialog {
+      -webkit-animation-name: slideDownExit;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: ease-out;
+      -webkit-animation-duration: 400ms;
+      -webkit-animation-fill-mode: forwards;
+      animation-name: slideDownExit;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+      animation-duration: 400ms;
+      animation-fill-mode: forwards;
+}
+   #onesignal-slidedown-container.slide-up.close-slidedown #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-up.close-slidedown #onesignal-popover-dialog, #onesignal-slidedown-container.slide-up.close-popover #onesignal-slidedown-dialog, #onesignal-slidedown-container.slide-up.close-popover #onesignal-popover-dialog, #onesignal-popover-container.slide-up.close-slidedown #onesignal-slidedown-dialog, #onesignal-popover-container.slide-up.close-slidedown #onesignal-popover-dialog, #onesignal-popover-container.slide-up.close-popover #onesignal-slidedown-dialog, #onesignal-popover-container.slide-up.close-popover #onesignal-popover-dialog {
+      -webkit-animation-name: slideUpExit;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-timing-function: ease-out;
+      -webkit-animation-duration: 400ms;
+      -webkit-animation-fill-mode: forwards;
+      animation-name: slideUpExit;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+      animation-duration: 400ms;
+      animation-fill-mode: forwards; }
 
 .slidedown-body-icon {
   box-sizing: border-box;
