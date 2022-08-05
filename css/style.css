@@ -9699,6 +9699,7 @@ a.text-dark:hover, a.text-dark:focus {
   animation-timing-function: ease-out;
   animation-duration: .4s;
   animation-fill-mode: forwards;
+  width:500px;
 }
 
 .slidedown-body-icon {
