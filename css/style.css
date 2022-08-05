@@ -9681,6 +9681,26 @@ a.text-dark:hover, a.text-dark:focus {
       animation-duration: 400ms;
       animation-fill-mode: forwards; }
 
+@keyframes slideUpExit {
+  0% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-80px);
+  }
+  100%{
+    transform: translateY(-180px);
+  }
+}
+
+#onesignal-slidedown-container.slide-up{
+  animation-name: slideUpExit;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: .4s;
+  animation-fill-mode: forwards;
+}
+
 .slidedown-body-icon {
   box-sizing: border-box;
   float: left;
